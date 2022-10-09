@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const attribute = [
   {
     "trait_type": "Genre",
-    "value": ""
+    "value": "Tribal"
   },
   {
     "trait_type": "Head",
@@ -87,7 +87,7 @@ function App() {
               <div className='col-12 col-md-6' key={idx}>
                 <div class="mb-3">
                   <label class="form-label">{item.trait_type}</label>
-                  <input type="text" class="form-control" value={item.value} onChange={(e) => updateAttributes(idx, e.target.value)} required/>
+                  <input type="text" class="form-control" value={item.value} onChange={(e) => updateAttributes(idx, e.target.value)} required disabled={!idx ? true : false}/>
                 </div>
               </div>
             ))
