@@ -22,11 +22,16 @@ const attribute = [
   {
     "trait_type": "Queen",
     "value": ""
+  },
+  {
+    "trait_type": "Symbolism",
+    "value": ""
   }
 ]
 
 function App() {
   
+  const [filename, setFilename] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -52,7 +57,7 @@ function App() {
     )}`;
     const link = document.createElement("a");
     link.href = jsonString;
-    link.download = "metadata.json";
+    link.download = filename + ".json";
 
     link.click();
   }
@@ -60,6 +65,10 @@ function App() {
   return (
     <div className='container'>
       <form onSubmit={onSubmit} className='input-box'>
+        <div class="mb-3">
+          <label class="form-label">File name</label>
+          <input type="text" class="form-control" value={filename} onChange={(e) => setFilename(e.target.value)} required/>
+        </div>
         <div class="mb-3">
           <label class="form-label">Name</label>
           <input type="text" class="form-control" value={name} onChange={(e) => setName(e.target.value)} required/>
